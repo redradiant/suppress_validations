@@ -11,11 +11,11 @@ module SuppressValidations
 
   module InstanceMethods
 
-    def valid?
+    def valid?(*args)
       if self.validations_disabled?
         true
       else
-        super
+        super(*args)
       end
     end
 
