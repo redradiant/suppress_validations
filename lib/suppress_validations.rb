@@ -40,7 +40,7 @@ module SuppressValidations
 
     protected
       def run_validations!
-        self.validations_disabled? : true : super
+        self.validations_disabled? ? true : super
       end
 
   end
