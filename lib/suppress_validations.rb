@@ -1,11 +1,12 @@
 require 'active_support/concern'
 
 module SuppressValidations
-  extend ActiveSuppoer::Concern
+  extend ActiveSupport::Concern
 
   included do
     attr_accessor :validations_disabled
     after_initialize :"enable_validations!"
+    alias :without_validations :suppress_validations
   end
 
   module InstanceMethods
@@ -36,7 +37,6 @@ module SuppressValidations
       enable_validations!
       ret
     end
-    alias :without_validations :suppress_validations
 
     protected
       def run_validations!
